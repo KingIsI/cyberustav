@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Buddy</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 font-sans">
+
+  <span id="quote"></span>
+
+  <div class="sidebar">
+    <h2 class="logo">StudyBuddy</h2>
+    <a href="#">Home</a>
+    <a href="#">Pomodoro</a>
+    <a href="#">Chatbot</a>
+    <a href="#">To-Do List</a>
+    <a href="#">Mental Health</a>
+  </div>
+
+  <div class="main">
+    <div class="navbar">
+      <h1>Study Buddy: A Study Partner</h1>
+      <p class="quote">Progress, not perfection.</p>
+      <div class="profile">👤</div>
+    </div>
+
+    <div class="dashboard">
+      <div class="welcome-card">
+        <h2>Welcome back! ✨</h2>
+        <p>Let’s make today productive.</p>
+      </div>
+
+      <div class="stats">
+        <div class="card">
+          <h3>Tasks Today</h3>
+          <p><strong>2/4</strong></p>
+          <div class="progress">
+            <div class="bar"></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Pomodoro Streak</h3>
+          <p><strong>7 days</strong></p>
+        </div>
+        <div class="card">
+          <h3>Mood Score</h3>
+          <p>😊 Great</p>
+        </div>
+      </div>
+
+      <div class="tasks-mood">
+        <div class="card">
+          <h3>Today's Tasks</h3>
+          <ul>
+            <li><input type="checkbox" checked> Complete Math Assignment</li>
+            <li><input type="checkbox"> Review Biology Notes</li>
+            <li><input type="checkbox"> Prepare Presentation</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Mood Check-In</h3>
+          <div class="emojis">😔 😐 🙂 😃 🤩</div>
+          <button class="check-btn">Complete Check-In</button>
+        </div>
+      </div>
+
+      <!-- Footer Section -->
+      <div class="footer-card">
+        <p>🌟 Keep pushing forward, every small step counts!</p>
+        <div class="footer-links">
+          <a href="#">Help</a> | 
+          <a href="#">Privacy</a> | 
+          <a href="#">Contact</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
