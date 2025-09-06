@@ -1,5 +1,4 @@
 
-
 const quotes = [
   "Progress, not perfection.",
   "Learning never exhausts the mind.",
@@ -14,54 +13,47 @@ function changeQuote() {
   quoteElement.style.opacity = 0;
   setTimeout(() => {
     quoteElement.textContent = quotes[quoteIndex];
-    quoteElement.style.opacity = 1; 
+    quoteElement.style.opacity = 1;
     quoteIndex = (quoteIndex + 1) % quotes.length;
   }, 500);
 }
-
-
 setInterval(changeQuote, 2000);
-
 changeQuote();
 
 document.addEventListener("DOMContentLoaded", () => {
-  const checkBtn = document.querySelector(".check-btn");
-  checkBtn.addEventListener("click", () => {
-    window.location.href = "#";
-  });
-});
-document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll(".content-section");
-  const menuLinks = document.querySelectorAll(".menu-item > a");
+  const submenuLinks = document.querySelectorAll(".submenu a");
 
-  // Function to show one section and hide others
+
   function showSection(id) {
     sections.forEach(sec => sec.classList.remove("active"));
     document.getElementById(id).classList.add("active");
   }
 
-  menuLinks.forEach(link => {
-    link.addEventListener("click", (e) => {
+ 
+  submenuLinks.forEach(link => {
+    link.addEventListener("click", e => {
       e.preventDefault();
       const target = link.textContent.trim().toLowerCase();
 
-      if (target.includes("home") || target.includes("dashboard")) {
+      if (target.includes("dashboard")) {
         showSection("dashboard");
-      } else if (target.includes("pomodoro")) {
+      } else if (target.includes("start timer")) {
         showSection("pomodoro");
-      } else if (target.includes("chatbot")) {
+      } else if (target.includes("ai chat")) {
         showSection("chatbot");
-      } else if (target.includes("to-do")) {
+      } else if (target.includes("tasks")) {
         showSection("todo");
-      } else if (target.includes("mental health")) {
+      } else if (target.includes("meditation")) {
         showSection("mentalHealth");
       }
     });
   });
 
+ 
   showSection("dashboard");
 
-  
+ 
   const addTaskBtn = document.getElementById("addTask");
   if (addTaskBtn) {
     addTaskBtn.addEventListener("click", () => {
@@ -74,5 +66,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-});
 
+
+  const checkBtn = document.querySelector(".check-btn");
+  if (checkBtn) {
+    checkBtn.addEventListener("click", () => {
+      alert("✅ Mood check-in completed!");
+    });
+  }
+});

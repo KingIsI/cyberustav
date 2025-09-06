@@ -27,44 +27,41 @@
       <div class="menu-item">
         <a href="#"><i class="fa-solid fa-house"></i> Home</a>
         <div class="submenu">
-          <a href="#"> Dashboard</a>
-       
+          <a href="#" data-target="dashboard">Dashboard</a>
         </div>
       </div>
 
       <div class="menu-item">
         <a href="#"><i class="fa-solid fa-clock"></i> Pomodoro</a>
         <div class="submenu">
-          <a href="#">Start Timer</a>
-        
+          <a href="#" data-target="pomodoro">Start Timer</a>
         </div>
       </div>
 
       <div class="menu-item">
-        <a href="#"> <i class="fa-solid fa-robot"></i> Chatbot</a>
+        <a href="#"><i class="fa-solid fa-robot"></i> Chatbot</a>
         <div class="submenu">
-          <a href="#">AI Chat</a>
+          <a href="#" data-target="chatbot">AI Chat</a>
         </div>
       </div>
 
       <div class="menu-item">
-        <a href="#"> <i class="fa-solid fa-rectangle-list"></i> To-Do List</a>
+        <a href="#"><i class="fa-solid fa-rectangle-list"></i> To-Do List</a>
         <div class="submenu">
-          <a href="#">Tasks</a>
-          <a href="#">Completed</a>
+          <a href="#" data-target="todo">Tasks</a>
+          <a href="#" data-target="todo">Completed</a>
         </div>
       </div>
 
       <div class="menu-item">
-        <a href="#"> <i class="fa-solid fa-notes-medical"></i> Mental Health</a>
+        <a href="#"><i class="fa-solid fa-notes-medical"></i> Mental Health</a>
         <div class="submenu">
-          <a href="#">Meditation</a>
- 
+          <a href="#" data-target="mentalHealth">Meditation</a>
         </div>
       </div>
     </div>
 
-    <!-- 📊 Dashboard Section -->
+    <!-- Sections -->
     <div id="dashboard" class="content-section active">
       <div class="welcome-card">
         <h2>Welcome back! ✨</h2>
@@ -123,7 +120,6 @@
       <div class="chat-response"></div>
     </div>
 
-   
     <div id="todo" class="content-section hidden">
       <h2>📝 To-Do List</h2>
       <ul id="todoTasks">
@@ -134,13 +130,11 @@
       <button id="addTask">Add</button>
     </div>
 
-
     <div id="mentalHealth" class="content-section hidden">
       <h2>💖 Mental Health</h2>
       <p>Take a deep breath 🌱. Here are some resources for you.</p>
     </div>
 
-   
     <div class="footer-card">
       <p>🌟 Keep pushing forward, every small step counts!</p>
       <div class="footer-links">
@@ -150,6 +144,5 @@
       </div>
     </div>
   </div>
-  
 </body>
 </html>

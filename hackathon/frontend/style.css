@@ -92,6 +92,7 @@ body:hover {
   font-size: 14px;
   text-decoration: none;
   transition: 0.3s, transform 0.2s;
+  cursor: pointer;
 }
 
 .submenu a:hover {
@@ -309,11 +310,11 @@ body:hover {
   border-radius: 10px;
   text-align: center;
   color: grey;
-  margin-bottom:auto;
+  margin-bottom: auto;
 }
 
 .footer-card .footer-links {
-  margin-bottom:auto;
+  margin-bottom: auto;
   font-size: 14px;
 }
 
@@ -323,7 +324,6 @@ body:hover {
   margin: 0 5px;
 }
 
-/* ✅ New content section styles */
 .content-section {
   display: none;
   background: white;
@@ -339,4 +339,11 @@ body:hover {
 
 .hidden {
   display: none;
+}
+
+
+.submenu a.active {
+  background: linear-gradient(90deg, #c084fc, #a78bfa);
+  color: white;
+  font-weight: bold;
 }
