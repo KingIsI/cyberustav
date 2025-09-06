@@ -5,29 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Study Buddy</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
-<body class="bg-gray-50 font-sans">
-
-  <span id="quote"></span>
-
-  <div class="sidebar">
-    <h2 class="logo">StudyBuddy</h2>
-    <a href="#">Home</a>
-    <a href="#">Pomodoro</a>
-    <a href="#">Chatbot</a>
-    <a href="#">To-Do List</a>
-    <a href="#">Mental Health</a>
-  </div>
+<body>
 
   <div class="main">
     <div class="navbar">
       <h1>Study Buddy: A Study Partner</h1>
-      <p class="quote">Progress, not perfection.</p>
-      <div class="profile">👤</div>
+      <div class="quote-container">
+        <p class="quote" id="quote">Progress, not perfection.</p>
+      </div>
     </div>
 
-    <div class="dashboard">
+    <div class="sidebar">
+      <h2 class="logo">StudyBuddy </h2>
+
+      <div class="menu-item">
+        <a href="#"><i class="fa-solid fa-house"></i> Home</a>
+        <div class="submenu">
+          <a href="#"> Dashboard</a>
+       
+        </div>
+      </div>
+
+      <div class="menu-item">
+        <a href="#"><i class="fa-solid fa-clock"></i> Pomodoro</a>
+        <div class="submenu">
+          <a href="#">Start Timer</a>
+        
+        </div>
+      </div>
+
+      <div class="menu-item">
+        <a href="#"> <i class="fa-solid fa-robot"></i> Chatbot</a>
+        <div class="submenu">
+          <a href="#">AI Chat</a>
+        </div>
+      </div>
+
+      <div class="menu-item">
+        <a href="#"> <i class="fa-solid fa-rectangle-list"></i> To-Do List</a>
+        <div class="submenu">
+          <a href="#">Tasks</a>
+          <a href="#">Completed</a>
+        </div>
+      </div>
+
+      <div class="menu-item">
+        <a href="#"> <i class="fa-solid fa-notes-medical"></i> Mental Health</a>
+        <div class="submenu">
+          <a href="#">Meditation</a>
+ 
+        </div>
+      </div>
+    </div>
+
+    <!-- 📊 Dashboard Section -->
+    <div id="dashboard" class="content-section active">
       <div class="welcome-card">
         <h2>Welcome back! ✨</h2>
         <p>Let’s make today productive.</p>
@@ -41,10 +79,12 @@
             <div class="bar"></div>
           </div>
         </div>
+
         <div class="card">
           <h3>Pomodoro Streak</h3>
           <p><strong>7 days</strong></p>
         </div>
+
         <div class="card">
           <h3>Mood Score</h3>
           <p>😊 Great</p>
@@ -54,31 +94,62 @@
       <div class="tasks-mood">
         <div class="card">
           <h3>Today's Tasks</h3>
-          <ul>
+          <ul id="todoList">
             <li><input type="checkbox" checked> Complete Math Assignment</li>
             <li><input type="checkbox"> Review Biology Notes</li>
             <li><input type="checkbox"> Prepare Presentation</li>
           </ul>
         </div>
+
         <div class="card">
           <h3>Mood Check-In</h3>
           <div class="emojis">😔 😐 🙂 😃 🤩</div>
           <button class="check-btn">Complete Check-In</button>
         </div>
       </div>
+    </div>
 
-      <!-- Footer Section -->
-      <div class="footer-card">
-        <p>🌟 Keep pushing forward, every small step counts!</p>
-        <div class="footer-links">
-          <a href="#">Help</a> | 
-          <a href="#">Privacy</a> | 
-          <a href="#">Contact</a>
-        </div>
+    <div id="pomodoro" class="content-section hidden">
+      <h2>⏳ Pomodoro Timer</h2>
+      <button id="startPomodoro">Start 25-min Timer</button>
+      <div id="timerDisplay">00:00</div>
+    </div>
+
+    <div id="chatbot" class="content-section hidden">
+      <h2>🤖 Chatbot</h2>
+      <p>Ask me anything about study tips!</p>
+      <input type="text" placeholder="Type your question..." class="chat-input">
+      <button class="chat-send">Send</button>
+      <div class="chat-response"></div>
+    </div>
+
+   
+    <div id="todo" class="content-section hidden">
+      <h2>📝 To-Do List</h2>
+      <ul id="todoTasks">
+        <li><input type="checkbox"> Sample Task 1</li>
+        <li><input type="checkbox"> Sample Task 2</li>
+      </ul>
+      <input type="text" id="newTask" placeholder="Add a new task">
+      <button id="addTask">Add</button>
+    </div>
+
+
+    <div id="mentalHealth" class="content-section hidden">
+      <h2>💖 Mental Health</h2>
+      <p>Take a deep breath 🌱. Here are some resources for you.</p>
+    </div>
+
+   
+    <div class="footer-card">
+      <p>🌟 Keep pushing forward, every small step counts!</p>
+      <div class="footer-links">
+        <a href="#">Help</a> | 
+        <a href="#">Privacy</a> | 
+        <a href="#">Contact</a>
       </div>
-
     </div>
   </div>
-
+  
 </body>
 </html>
