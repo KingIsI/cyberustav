@@ -812,7 +812,6 @@ body.focus-active #timerDisplay {
   text-decoration: underline;
 }
 
-/* Responsive: Stack on mobile */
 @media (max-width: 800px) {
   .login-wrapper {
     flex-direction: column;
@@ -828,9 +827,8 @@ body.focus-active #timerDisplay {
   }
 }
 
-/* Contact section */
 .contact-section {
-  margin-top: auto; /* push to bottom */
+  margin-top: auto; 
   text-align: center;
   padding-top: 40px;
 }
@@ -856,7 +854,7 @@ body.focus-active #timerDisplay {
 .social-icons a img {
   width: 28px;
   height: 28px;
-  filter: invert(1); /* makes icons white */
+  filter: invert(1); 
   transition: transform 0.2s, opacity 0.2s;
 }
 
@@ -865,3 +863,46 @@ body.focus-active #timerDisplay {
   opacity: 0.8;
 }
 
+.chat-message {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    line-height: 1.4;
+    animation: fadeIn 0.3s ease;
+    word-wrap: break-word;
+}
+
+.bot-message {
+    background-color: #e0f2fe; 
+    color: #0369a1;
+    align-self: flex-start;
+}
+
+.user-message {
+    background-color: #d1fae5; 
+    color: #065f46;
+    align-self: flex-end;
+}
+
+.chat-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+    background-color: rgba(107, 114, 128, 0.5);
+    border-radius: 4px;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .chat-input-container {
+        flex-direction: column;
+    }
+    #sendChatBtn {
+        width: 100%;
+    }
+}

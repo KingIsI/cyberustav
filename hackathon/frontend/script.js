@@ -276,3 +276,32 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Enter") handleAddTask();
   });
 });
+
+const chatContainer = document.getElementById('chatContainer');
+const chatInput = document.getElementById('chatInput');
+const sendBtn = document.getElementById('sendChatBtn');
+
+function appendMessage(message, sender) {
+    const msgDiv = document.createElement('div');
+    msgDiv.classList.add('chat-message');
+    msgDiv.classList.add(sender === 'bot' ? 'bot-message' : 'user-message');
+    msgDiv.innerText = message;
+    chatContainer.appendChild(msgDiv);
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+
+sendBtn.addEventListener('click', () => {
+    const message = chatInput.value.trim();
+    if (!message) return;
+    appendMessage(message, 'user');
+    chatInput.value = '';
+
+    // Simulate bot response
+    setTimeout(() => {
+        appendMessage("That's interesting! Let's dive into it.", 'bot');
+    }, 800);
+});
+
+chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendBtn.click();
+});
