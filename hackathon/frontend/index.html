@@ -9,20 +9,20 @@
     rel="stylesheet" 
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
 </head>
 <body>
 
   <div class="main">
-    <div class="navbar">
-      <h1>Study Buddy: A Study Partner</h1>
+    <div class="navbar"> 
+      
+     <div class="pic"></div><h1><b> Study Buddy: A Study Partner</b> </h1>
       <div class="quote-container">
         <p class="quote" id="quote">Progress, not perfection.</p>
       </div>
     </div>
 
     <div class="sidebar">
-      <h2 class="logo">StudyBuddy </h2>
+      <h2 class="logo">StudyBuddy <i class="fa-solid fa-lightbulb"> </i> </h2>
 
       <div class="menu-item">
         <a href="#"><i class="fa-solid fa-house"></i> Home</a>
@@ -61,7 +61,7 @@
       </div>
     </div>
 
-    <!-- Sections -->
+    
     <div id="dashboard" class="content-section active">
       <div class="welcome-card">
         <h2>Welcome back! ✨</h2>
@@ -107,10 +107,41 @@
     </div>
 
     <div id="pomodoro" class="content-section hidden">
-      <h2>⏳ Pomodoro Timer</h2>
-      <button id="startPomodoro">Start 25-min Timer</button>
-      <div id="timerDisplay">00:00</div>
-    </div>
+      <div class="pomodoro-header">
+        <h2>⏳ Pomodoro Timer</h2>
+        <select id="sessionType" class="session-select">
+          <option value="25" selected>Focus — 25 min</option>
+          <option value="50">Focus — 50 min</option>
+          <option value="5">Break — 5 min</option>
+          <option value="10">Break — 10 min</option>
+          <option value="15">Break — 15 min</option>
+        </select>
+      </div>
+    
+      <div class="pomodoro-grid">
+
+        <div class="pomodoro-card">
+          <div id="timerDisplay" class="pomodoro-time">25:00</div>
+    
+          <div class="progress">
+            <div class="bar" id="pomodoroProgress" style="width:0%"></div>
+          </div>
+    
+          <div class="pomodoro-controls">
+            <button id="startPausePomodoro" class="btn start">▶ Start</button>
+            <button id="resetPomodoro" class="btn">⟳ Reset</button>
+            <button id="focusMode" class="btn focus">🎯 Focus Mode</button>
+          </div>
+        </div>
+    
+
+        <div class="pomodoro-side card">
+          <h3>📜 Session History</h3>
+          <ul id="pomodoroHistory" class="history-list"></ul>
+        </div>
+      </div>
+    </div>    
+      
 
     <div id="chatbot" class="content-section hidden">
       <h2>🤖 Chatbot</h2>
@@ -144,5 +175,18 @@
       </div>
     </div>
   </div>
+
+  <div id="focusOverlay" class="focus-overlay hidden">
+    <div class="focus-content">
+      <div id="focusTimer" class="focus-timer">25:00</div>
+      <div class="focus-controls">
+        <button id="focusStartPause" class="btn start">▶ Start</button>
+        <button id="focusReset" class="btn">⟳ Reset</button>
+        <button id="exitFocus" class="btn">🚪 Exit</button>
+      </div>
+    </div>
+  </div>
+  
 </body>
+ <script src="script.js" defer></script>
 </html>

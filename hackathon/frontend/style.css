@@ -30,7 +30,7 @@ body:hover {
   top: 0;
   left: 0;
   overflow-y: auto;
-  box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+  box-shadow: 2px 0 8px rgba(0,0,0,0.05); 
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -118,8 +118,7 @@ body:hover {
   padding: 25px;
   min-height: 100vh;
   background: linear-gradient(135deg, #fdfbfb, #ebedee);
-  display: flex;
-  flex-direction: column;
+ display: inline-block;
   transition: background 0.3s;
 }
 
@@ -128,6 +127,7 @@ body:hover {
 }
 
 .navbar {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -145,13 +145,17 @@ body:hover {
 }
 
 .navbar h1 {
+  margin-top: 13px;
+margin-left: 340px;
   font-size: 28px;
   color: #2d3e50;
   margin-bottom: 12px;
+
 }
 
 .quote-container {
-  width: 100%;
+  margin-top: 15px;
+  width: 400px;
   background: linear-gradient(90deg, #c084fc, #8ec5fc);
   padding: 15px 20px;
   border-radius: 12px;
@@ -160,6 +164,7 @@ body:hover {
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
+  margin-left: 340px;
 }
 
 .quote-container:hover {
@@ -175,6 +180,14 @@ body:hover {
   opacity: 1;
   transition: opacity 0.5s ease-in-out, text-shadow 0.3s;
 }
+.navbar-image {
+  position: absolute;
+  left: 20px; 
+  top: 20px;  
+  width: 50px; 
+  height: auto;
+  z-index: 1; 
+}
 
 .navbar .quote:hover {
   text-shadow: 0 0 8px rgba(255,255,255,0.8);
@@ -189,6 +202,9 @@ body:hover {
   text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   transition: transform 0.3s, box-shadow 0.3s;
+  width:650px;
+  margin-left:220px;
+  font-size:22px;
 }
 
 .welcome-card:hover {
@@ -346,4 +362,152 @@ body:hover {
   background: linear-gradient(90deg, #c084fc, #a78bfa);
   color: white;
   font-weight: bold;
+}
+.pic{
+margin-left:70px;
+  position: absolute;
+  background-image: url("gpic.png");
+  background-size: cover;
+  height:170px;
+  width: 170px;
+  
+}
+
+/* --- Pomodoro Styles --- */
+.pomodoro-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.session-select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+}
+.pomodoro-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+.pomodoro-card {
+  background: white;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.06);
+}
+.pomodoro-time {
+  font-size: 60px;
+  font-weight: 800;
+  text-align: center;
+  color: #2d3e50;
+  margin: 10px 0 14px;
+}
+.pomodoro-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.btn {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  background: #f1f1f7;
+  color: #333;
+  transition: transform .15s, opacity .15s;
+}
+.btn:hover { transform: translateY(-1px); opacity: .95; }
+.btn.start { background: #22c55e; color: #fff; }
+.btn.focus { background: #3b82f6; color: #fff; }
+
+.pomodoro-side.card {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.06);
+}
+.history-list {
+  max-height: 220px;
+  overflow: auto;
+  margin-top: 10px;
+  list-style: none;
+  padding-left: 0;
+}
+.history-list li {
+  background: #f5f7ff;
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin: 6px 0;
+  font-size: 14px;
+}
+#pomodoroProgress {
+  width: 0%;
+  background: linear-gradient(90deg,#a78bfa,#c084fc);
+}
+@media (max-width: 900px) {
+  .pomodoro-grid { grid-template-columns: 1fr; }
+}
+
+
+body.focus-active {
+  background: #16a34a !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+body.focus-active * {
+  display: none !important;
+}
+
+body.focus-active #timerDisplay {
+  display: block !important;
+  font-size: 120px;
+  font-weight: 900;
+  color: #fff;
+  text-align: center;
+}
+
+/* --- Focus Mode Overlay --- */
+.focus-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #bbf7d0; /* light green */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.focus-overlay.hidden { display: none; }
+
+.focus-content {
+  text-align: center;
+}
+
+.focus-timer {
+  font-size: 100px;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.focus-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.focus-controls .btn {
+  font-size: 18px;
+  padding: 12px 20px;
+  border-radius: 10px;
 }
