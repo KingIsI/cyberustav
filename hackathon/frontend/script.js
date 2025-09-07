@@ -185,7 +185,6 @@ document.addEventListener("DOMContentLoaded", () => {
     historyList.prepend(li);
   }
 
-  // ===== Event Listeners =====
   startPauseBtn.addEventListener("click", startPause);
   resetBtn.addEventListener("click", reset);
   focusBtn.addEventListener("click", toggleFocus);
@@ -193,11 +192,87 @@ document.addEventListener("DOMContentLoaded", () => {
     changeSession(parseInt(e.target.value, 10))
   );
 
-  // Focus overlay buttons
   focusStartPause.addEventListener("click", startPause);
   focusReset.addEventListener("click", reset);
   exitFocus.addEventListener("click", toggleFocus);
 
-  // Init
+
   updateDisplay();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const addTaskBtn = document.getElementById("addTaskBtn");
+  const newTaskInput = document.getElementById("newTaskInput");
+  const prioritySelect = document.getElementById("prioritySelect");
+  const todoTasks = document.getElementById("todoTasks");
+
+  let draggedItem = null;
+
+  function createTask(taskText, priority) {
+    const li = document.createElement("li");
+    li.classList.add("todo-item", priority);
+    li.setAttribute("draggable", "true");
+
+    li.innerHTML = `
+      <span>${taskText}</span>
+      <div class="todo-actions">
+        <button class="edit-btn">✏️</button>
+        <button class="delete-btn">🗑️</button>
+      </div>
+    `;
+
+    // Edit button
+    li.querySelector(".edit-btn").addEventListener("click", () => {
+      const newText = prompt("Edit task:", taskText);
+      if (newText) li.querySelector("span").textContent = newText;
+    });
+
+    li.querySelector(".delete-btn").addEventListener("click", () => {
+      li.remove();
+    });
+
+    li.addEventListener("dragstart", () => {
+      draggedItem = li;
+      setTimeout(() => li.style.display = "none", 0);
+    });
+
+    li.addEventListener("dragend", () => {
+      draggedItem.style.display = "flex";
+      draggedItem = null;
+    });
+
+    li.addEventListener("dragover", (e) => e.preventDefault());
+
+    li.addEventListener("drop", (e) => {
+      e.preventDefault();
+      if (draggedItem && draggedItem !== li) {
+        const allItems = [...todoTasks.children];
+        const draggedIndex = allItems.indexOf(draggedItem);
+        const droppedIndex = allItems.indexOf(li);
+
+        if (draggedIndex < droppedIndex) {
+          todoTasks.insertBefore(draggedItem, li.nextSibling);
+        } else {
+          todoTasks.insertBefore(draggedItem, li);
+        }
+      }
+    });
+
+    todoTasks.appendChild(li);
+  }
+
+  function handleAddTask() {
+    const taskText = newTaskInput.value.trim();
+    const priority = prioritySelect.value;
+
+    if (taskText !== "") {
+      createTask(taskText, priority);
+      newTaskInput.value = "";
+    }
+  }
+
+  addTaskBtn.addEventListener("click", handleAddTask);
+  newTaskInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") handleAddTask();
+  });
 });

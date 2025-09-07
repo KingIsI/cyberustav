@@ -373,7 +373,7 @@ margin-left:70px;
   
 }
 
-/* --- Pomodoro Styles --- */
+
 .pomodoro-header {
   display: flex;
   align-items: center;
@@ -475,12 +475,12 @@ body.focus-active #timerDisplay {
   text-align: center;
 }
 
-/* --- Focus Mode Overlay --- */
+
 .focus-overlay {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: #bbf7d0; /* light green */
+  background: #bbf7d0; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -510,4 +510,115 @@ body.focus-active #timerDisplay {
   font-size: 18px;
   padding: 12px 20px;
   border-radius: 10px;
+}
+
+.todo-card {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  margin-bottom: 1.5rem;
+  transition: transform 0.2s ease;
+}
+
+.todo-card:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+.todo-card input,
+.todo-card select {
+  flex: 1;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  outline: none;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+
+.todo-card input:focus,
+.todo-card select:focus {
+  border-color: #6366f1;
+}
+
+.todo-card button {
+  padding: 0.6rem 1rem;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: transform 0.15s ease, background 0.2s;
+}
+
+.todo-card button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #4f46e5, #3730a3);
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.6rem;
+  border-radius: 10px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  cursor: grab;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInSlide 0.3s forwards;
+}
+
+.todo-item:active {
+  cursor: grabbing;
+  animation: vibrate 0.1s infinite;
+}
+
+@keyframes fadeInSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.todo-item.low {
+  border-left: 6px solid #60a5fa;
+}
+
+.todo-item.medium {
+  border-left: 6px solid #facc15;
+}
+
+.todo-item.high {
+  border-left: 6px solid #f87171;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.todo-actions button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.15s ease;
+}
+
+.todo-actions button:hover {
+  transform: scale(1.2);
 }

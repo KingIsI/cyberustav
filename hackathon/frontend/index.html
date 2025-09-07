@@ -153,12 +153,20 @@
 
     <div id="todo" class="content-section hidden">
       <h2>📝 To-Do List</h2>
-      <ul id="todoTasks">
-        <li><input type="checkbox"> Sample Task 1</li>
-        <li><input type="checkbox"> Sample Task 2</li>
-      </ul>
-      <input type="text" id="newTask" placeholder="Add a new task">
-      <button id="addTask">Add</button>
+
+
+      <div class="todo-card">
+        <input type="text" id="newTaskInput" placeholder="Write your task...">
+        <select id="prioritySelect">
+          <option value="low">🔵 Less </option>
+          <option value="medium">🟡 Moderate</option>
+          <option value="high">🔴 High</option>
+        </select>
+        <button id="addTaskBtn">Add</button>
+      </div>
+
+
+      <ul id="todoTasks" class="todo-list"></ul>
     </div>
 
     <div id="mentalHealth" class="content-section hidden">
