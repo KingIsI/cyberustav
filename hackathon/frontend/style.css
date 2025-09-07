@@ -623,7 +623,51 @@ body.focus-active #timerDisplay {
   transform: scale(1.2);
 }
 
-/* Login Page */
+/* --- Role Choice inside signup --- */
+.role-choice {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.role-option {
+  display: flex;
+  align-items: stretch;
+  cursor: pointer;
+}
+
+.role-option input {
+  display: none; /* hide radio button */
+}
+
+.role-box {
+  flex: 1;
+  padding: 14px;
+  border: 2px solid #d1d5db;
+  border-radius: 10px;
+  background: #f9fafb;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  font-size: 15px;
+  color: #111827;
+  text-align: left;
+}
+
+.role-box p {
+  font-size: 13px;
+  color: #4b5563;
+  margin: 6px 0 0 0;
+  font-weight: 400;
+}
+
+/* When selected */
+.role-option input:checked + .role-box {
+  border-color: #6366f1;
+  background: #eef2ff;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.2);
+}
+
 /* --- Fullscreen Split Login --- */
 .login-body {
   margin: 0;
@@ -784,8 +828,9 @@ body.focus-active #timerDisplay {
   }
 }
 
+/* Contact section */
 .contact-section {
-  margin-top: auto; 
+  margin-top: auto; /* push to bottom */
   text-align: center;
   padding-top: 40px;
 }
@@ -811,7 +856,7 @@ body.focus-active #timerDisplay {
 .social-icons a img {
   width: 28px;
   height: 28px;
-  filter: invert(1); 
+  filter: invert(1); /* makes icons white */
   transition: transform 0.2s, opacity 0.2s;
 }
 
@@ -819,3 +864,4 @@ body.focus-active #timerDisplay {
   transform: scale(1.15);
   opacity: 0.8;
 }
+

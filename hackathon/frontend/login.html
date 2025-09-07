@@ -9,7 +9,7 @@
 <body class="login-body">
 
   <div class="login-wrapper">
-    <!-- Left 50% -->
+
     <div class="login-left">
       <img src="gpic.png" alt="Study Buddy Logo" class="login-logo">
       <h1 class="brand-title">Study Buddy</h1>
@@ -17,7 +17,7 @@
         Your all-in-one productivity partner to stay focused, track progress, 
         and achieve your goals 📚✨
       </p>
-            <div class="contact-section">
+      <div class="contact-section">
         <h3>Contact Us</h3>
         <p>studybuddy@gmail.com</p>
         <div class="social-icons">
@@ -26,14 +26,13 @@
           <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" alt="LinkedIn"></a>
         </div>
       </div>
-
     </div>
 
-    <!-- Right 50% -->
+   
     <div class="login-right">
       <div class="login-card">
         <h2>Welcome Back 👋</h2>
-        <p class="subtitle">Log in to continue your journey with Study Buddy</p>
+        <p class="subtitle">Log in to continue your Interactions with fellow Stud</p>
 
         <form class="login-form">
           <div class="input-group">
@@ -51,11 +50,12 @@
 
         <div class="login-footer">
           <a href="#">Forgot password?</a>
-          <p>Don't have an account? <a href="#">Sign up</a></p>
+          <p>Don't have an account? <a href="#" id="signup-link">Sign up</a></p>
         </div>
       </div>
     </div>
   </div>
+
 <script>
   document.querySelector('.login-form').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -63,17 +63,22 @@
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value.trim();
 
-    if (email && password) {
-       
-      window.location.href = "index.html";
+    const storedEmail = localStorage.getItem("userEmail");
+    const storedPassword = localStorage.getItem("userPassword");
+
+    if (email === storedEmail && password === storedPassword) {
+      alert("✅ Login successful!");
+      window.location.href = "index.html"; 
     } else {
-      
-      alert('Please enter both email and password.');
+      alert("❌ Invalid email or password!");
     }
   });
 
+  document.getElementById('signup-link').addEventListener('click', function(event) {
+    event.preventDefault();
+    window.location.href = "signup.html";
+  });
 </script>
 
 </body>
 </html>
-
