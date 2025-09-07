@@ -622,3 +622,200 @@ body.focus-active #timerDisplay {
 .todo-actions button:hover {
   transform: scale(1.2);
 }
+
+/* Login Page */
+/* --- Fullscreen Split Login --- */
+.login-body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  height: 100vh;
+}
+
+.login-wrapper {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Left 50% */
+.login-left {
+  flex: 1;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.login-logo {
+  width: 140px;
+  height: auto;
+  margin-bottom: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+.brand-title {
+  font-size: 40px;
+  font-weight: 900;
+  margin-bottom: 14px;
+}
+
+.brand-tagline {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 400px;
+  color: #f3f4f6;
+}
+
+/* Right 50% */
+.login-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9fafb;
+  padding: 40px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 360px;
+  background: white;
+  padding: 32px 28px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.login-card h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.login-card .subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  transition: border .2s, box-shadow .2s;
+}
+
+.input-group input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.3);
+}
+
+.login-btn {
+  background: #6366f1;
+  color: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: transform .15s, background .2s;
+  width: 100%;
+}
+
+.login-btn:hover {
+  background: #4f46e5;
+  transform: translateY(-1px);
+}
+
+.login-footer {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.login-footer a {
+  color: #6366f1;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive: Stack on mobile */
+@media (max-width: 800px) {
+  .login-wrapper {
+    flex-direction: column;
+  }
+  .login-left, .login-right {
+    flex: none;
+    width: 100%;
+    height: auto;
+    padding: 30px 20px;
+  }
+  .brand-title {
+    font-size: 28px;
+  }
+}
+
+.contact-section {
+  margin-top: auto; 
+  text-align: center;
+  padding-top: 40px;
+}
+
+.contact-section h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.contact-section p {
+  font-size: 14px;
+  margin-bottom: 12px;
+  color: #e5e7eb;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+.social-icons a img {
+  width: 28px;
+  height: 28px;
+  filter: invert(1); 
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.social-icons a img:hover {
+  transform: scale(1.15);
+  opacity: 0.8;
+}
