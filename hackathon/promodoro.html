@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Buddy</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="main">
+
+    <div class="navbar"> 
+      <div class="pic"></div>
+      <h1><b> Study Buddy: A Study Partner</b> </h1>
+      <div class="quote-container">
+        <p class="quote" id="quote">Progress, not perfection.</p>
+      </div>
+    </div>
+    
+    <div class="sidebar">
+      <h2 class="logo">StudyBuddy<i class="fa-solid fa-lightbulb"></i></h2>
+      <div class="menu-item">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Homepage</a>
+      </div>
+    </div>
+  
+    <div class="mini-main">
+      <div class="mini-navbar"></div>
+
+      <div class="content-section active">
+        <h1>⏳<b> Pomodoro Timer</b></h1>
+        
+        <!-- Animated Timer -->
+        <div class="timer"> <div id="timerDisplay">25:00</div></div>
+
+        <button id="startPomodoro">Start 25-min Timer</button>
+          <button id="startPomodoro">Pause</button>
+            <button id="startPomodoro">Stop</button>
+        
+      </div>
+      
+    <div class="footer-card">
+      <p>🌟 Keep pushing forward, every small step counts!</p>
+      <div class="footer-links">
+        <a href="#">Help</a> | 
+        <a href="#">Privacy</a> | 
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    </div>
+  </div>
+  
+  <script >
+const startBtn = document.getElementById("startPomodoro");
+const timerDisplay = document.getElementById("timerDisplay");
+const timerCircle = document.querySelector(".timer");
+
+let timer;
+let timeLeft = 25 * 60; // 25 minutes in seconds
+let isRunning = false;
+
+function updateDisplay() {
+  let minutes = Math.floor(timeLeft / 60);
+  let seconds = timeLeft % 60;
+  timerDisplay.textContent = 
+    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+}
+
+function updateCircle() {
+  let progress = ((25 * 60 - timeLeft) / (25 * 60)) * 360;
+  timerCircle.style.background = 
+    `conic-gradient(#6a5acd ${progress}deg, #ddd ${progress}deg)`;
+}
+
+function startTimer() {
+  if (isRunning) return;
+  isRunning = true;
+
+  timer = setInterval(() => {
+    if (timeLeft > 0) {
+      timeLeft--;
+      updateDisplay();
+      updateCircle();
+    } else {
+      clearInterval(timer);
+      isRunning = false;
+      alert("⏰ Time's up! Take a short break!");
+    }
+  }, 1000);
+}
+
+startBtn.addEventListener("click", () => {
+  if (!isRunning) {
+    timeLeft = 25 * 60; // reset each time you press Start
+    updateDisplay();
+    updateCircle();
+    startTimer();
+  }
+});
+
+// Show initial display
+updateDisplay();
+
+
+  </script>
+</body>
+</html>
+

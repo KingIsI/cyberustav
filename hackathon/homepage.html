@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Buddy - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <style>
+    body {
+      background-color: #0f172a;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+    }
+    .btn-glow {
+      background: linear-gradient(to right, #3b82f6, #06b6d4);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      transition: all 0.3s;
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.7);
+    }
+    .btn-glow:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(6, 182, 212, 0.9);
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="flex justify-between items-center px-8 py-4 bg-gray-900/70 backdrop-blur-md fixed w-full z-50">
+    <h1 class="text-2xl font-bold text-blue-400">StudyBuddy <i class="fa-solid fa-lightbulb"></i></h1>
+    <nav class="space-x-6 text-lg">
+      <a href="#" class="hover:text-blue-400">Home</a>
+      <a href="#features" class="hover:text-blue-400">Features</a>
+      <a href="#about" class="hover:text-blue-400">About</a>
+      <a href="#contact" class="hover:text-blue-400">Contact</a>
+    </nav>
+    <button class="btn-glow">Dashboard</button>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="flex flex-col justify-center items-center text-center h-screen px-4">
+    <h2 class="text-5xl font-extrabold mb-4">
+      Think Smart. <span class="text-blue-400">Study Better.</span>
+    </h2>
+    <p class="text-lg text-gray-300 max-w-2xl mb-6">
+      Your personal AI-powered study partner with Pomodoro, Chatbot, To-Do, and more – 
+      helping you stay productive and balanced.
+    </p>
+    <button class="btn-glow text-lg">🚀 Get Started</button>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="px-8 py-20 grid md:grid-cols-3 gap-8">
+    <div class="card text-center">
+      <i class="fa-solid fa-clock text-4xl text-blue-400 mb-4"></i>
+      <h3 class="text-xl font-semibold mb-2">Pomodoro Timer</h3>
+      <p class="text-gray-300">Stay focused with customizable sessions and track your streaks.</p>
+    </div>
+    <div class="card text-center">
+      <i class="fa-solid fa-robot text-4xl text-green-400 mb-4"></i>
+      <h3 class="text-xl font-semibold mb-2">AI Chatbot</h3>
+      <p class="text-gray-300">Ask questions, get answers, and study interactively with AI.</p>
+    </div>
+    <div class="card text-center">
+      <i class="fa-solid fa-list-check text-4xl text-yellow-400 mb-4"></i>
+      <h3 class="text-xl font-semibold mb-2">To-Do & Notes</h3>
+      <p class="text-gray-300">Organize tasks, set priorities, and never miss a deadline.</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="px-8 py-20 bg-gray-800/50 text-center">
+    <h2 class="text-3xl font-bold mb-4">About StudyBuddy</h2>
+    <p class="max-w-3xl mx-auto text-gray-300">
+      We created StudyBuddy to help students manage their time, track progress,
+      and maintain mental wellness. It’s not just a tool – it’s your partner in learning.
+    </p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="px-8 py-20 text-center">
+    <h2 class="text-3xl font-bold mb-4">Get in Touch</h2>
+    <p class="text-gray-300 mb-6">Have questions or suggestions? We'd love to hear from you.</p>
+    <a href="mailto:support@studybuddy.com" class="btn-glow">📧 Contact Us</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-center py-6 text-gray-400">
+    <p>© 2025 StudyBuddy. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
