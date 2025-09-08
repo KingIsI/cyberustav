@@ -305,3 +305,4 @@ sendBtn.addEventListener('click', () => {
 chatInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') sendBtn.click();
 });
+
